@@ -1,34 +1,25 @@
 import * as ko from 'knockout';
 import THeadCellModel from './theadCellModel';
+import TBodyCellModel from './tbodyCellModel';
+import {thead, json} from  './data';
 
-var thead = [
-    {
-        prop: 'pk',
-        title: 'index',
-        template: 'naormal'
-    }, {
-        prop: 'name',
-        title: 'name',
-        template: 'naormal'
-    },
-    {
-        prop: 'q',
-        title: 'qwerty',
-        template: 'naormal'
-    }
-];
-
-var json = [
-    {pk: 12, name: 'Vas', q: 'zz'},
-    {pk: 11, name: 'Igar', q: 45},
-    {pk: 14, name: 'hdsadf', q: 17},
-    {pk: 16, name: 'qwerty', q: 24}
-];
-
-const AppModel = function(head, body) {
+const AppModel = function(heads, bodys) {
     const self = this;
-    self.thead = ko.observableArray(head.map(cell => new THeadCellModel(cell)));
-    self.body = ko.observableArray(body);
+
+    self.allTHead = heads.map(head => head.map(cell => new THeadCellModel(cell)));
+    self.allBody = bodys.map(body => body.map(cell => new TBodyCellModel(cell)));
+
+    self.currentTHead = ko.observableArray(self.allTHead[0]);
+    self.currentBody = ko.observableArray(self.allBody[0]);
+
+    self.changeTable = function(buttonNumber) {
+        let number = buttonNumber();
+        
+        if (self.allTHead[number] && self.allBody[number]) {
+            self.currentTHead(self.allTHead[number]);
+            self.currentBody(self.allBody[number]);
+        }
+    };
 };
 
 ko.applyBindings(new AppModel(thead, json));

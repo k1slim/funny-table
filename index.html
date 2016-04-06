@@ -9,24 +9,25 @@
 <body>
 
 <main>
+    <div class="btn-group" role="group" aria-label="..." data-bind="foreach: allTHead">
+        <button type="button" class="btn btn-default"
+                data-bind="text: $index, click: function(data, event) { $root.changeTable($index, data, event) }"></button>
+    </div>
+
     <table class="table table-bordered">
         <thead>
-            <tr data-bind="foreach: thead">
+            <tr data-bind="foreach: currentTHead">
                 <td data-bind="text: title">
 
                 </td>
             </tr>
         </thead>
-        <tbody>
-            <!-- ko foreach: body -->
-                <tr>
-                    <!-- ko foreach: $parent.thead -->
-                        <td data-bind="text: $parent[prop] ">
+        <tbody data-bind="foreach: currentBody">
+            <tr data-bind="foreach: $parent.currentTHead">
+                <td data-bind="text: $parent[prop] ">
 
-                        </td>
-                    <!-- /ko -->
-                </tr>
-            <!-- /ko -->
+                </td>
+            </tr>
         </tbody>
     </table>
 </main>
