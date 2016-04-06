@@ -1,0 +1,10 @@
+.table{
+  margin: 15px auto;
+  width: 90%;
+
+  thead{
+    td:first-letter{
+      text-transform: uppercase;
+    }
+  }
+}
