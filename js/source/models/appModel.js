@@ -1,7 +1,7 @@
 import * as ko from 'knockout';
 import THeadCellModel from './theadCellModel';
 import TBodyCellModel from './tbodyCellModel';
-import {thead, json} from  './data';
+import {thead, json} from  './../data';
 
 const AppModel = function(heads, bodys) {
     const self = this;
@@ -14,7 +14,7 @@ const AppModel = function(heads, bodys) {
 
     self.changeTable = function(buttonNumber) {
         let number = buttonNumber();
-        
+
         if (self.allTHead[number] && self.allBody[number]) {
             self.currentTHead(self.allTHead[number]);
             self.currentBody(self.allBody[number]);
