@@ -1,5 +1,3 @@
-//import * as ko from 'knockout';
-
 const TBodyCellModel = function(cell) {
     const self = this;
 

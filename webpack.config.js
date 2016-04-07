@@ -3,7 +3,7 @@ const webpack = require('webpack');
 module.exports = {
     entry: './js/source/models/appModel.js',
     output: {
-        path: './js/compiled',
+        // path: './js/compiled/',
         filename: 'build.js'
     },
     module: {
@@ -19,7 +19,7 @@ module.exports = {
         ]
     },
     watch: true,
-    
+
     watchOptions: {
         aggregateTimeout: 200
     },

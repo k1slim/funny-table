@@ -5,13 +5,23 @@
     <title>Funny Table</title>
     <link rel="stylesheet" type="text/css" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="css/compiled/main.css">
+
+    <script type="text/html" id="select-template">
+        <select data-bind="options: options, value: initialValue"></select>
+    </script>
+
+    <script type="text/html" id="normal">
+        <span data-bind="text: initialValue">
+
+        </span>
+    </script>
 </head>
 <body>
 
 <main>
     <div class="btn-group" role="group" aria-label="..." data-bind="foreach: allTHead">
         <button type="button" class="btn btn-default"
-                data-bind="text: $index, click: function(data, event) { $root.changeTable($index, data, event) }"></button>
+                data-bind="text: $index, click: function(data, event) { $parent.changeTable($index, data, event) }"></button>
     </div>
 
     <table class="table table-bordered">
@@ -24,14 +34,18 @@
         </thead>
         <tbody data-bind="foreach: currentBody">
             <tr data-bind="foreach: $parent.currentTHead">
-                <td data-bind="text: $parent[prop] ">
+
+                <td data-bind="template: { name: template, data: {options: $parent[options], initialValue: $parent[prop] } }">
 
                 </td>
+
             </tr>
         </tbody>
     </table>
 </main>
 
 <script src="js/compiled/build.js"></script>
+
+
 </body>
 </html>

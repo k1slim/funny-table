@@ -2,67 +2,59 @@ export const thead = [
     [
         {
             prop: 'pk',
-            title: 'index',
-            template: 'normal'
+            title: 'index'
         },
         {
             prop: 'name',
-            title: 'name',
-            template: 'normal'
+            title: 'name'
         },
         {
             prop: 'q',
             title: 'age',
-            template: 'normal'
+            template: 'select-template',
+            options: 'options'
         }
     ],
     [
         {
             prop: 'cost',
-            title: 'cost',
-            template: 'normal'
+            title: 'cost'
         },
         {
             prop: 'model',
-            title: 'model',
-            template: 'normal'
+            title: 'model'
         }
     ],
     [
         {
             prop: 'first',
-            title: 'first',
-            template: 'normal'
+            title: 'first'
         },
         {
             prop: 'second',
-            title: 'second',
-            template: 'normal'
+            title: 'second'
         },
         {
             prop: 'third',
-            title: 'third',
-            template: 'normal'
+            title: 'third'
         },
         {
             prop: 'fourth',
-            title: 'fourth',
-            template: 'normal'
+            title: 'fourth'
         },
         {
             prop: 'fifth',
-            title: 'fifth',
-            template: 'normal'
+            title: 'fifth'
         }
     ]
 ];
 
 export const json = [
     [
-        {pk: 12, name: 'Vas', q: 2},
-        {pk: 11, name: 'Igar', q: 45},
-        {pk: 14, name: 'Petya', q: 17},
-        {pk: 16, name: 'qwerty', q: 24}
+        {pk: 12, name: 'Vas', q: 2, options: [1, 2, 4, 5, 6, 7]},
+        {pk: 11, name: 'Igar', q: 45, options: [1, 2, 4, 5, 45, 6, 7]},
+        {pk: 14, name: 'Petya', q: 17, options: [1, 2, 4, 5, 17, 6, 7]},
+        {pk: 16, name: 'qwerty', q: 24, options: [1, 2, 4, 5, 6, 24, 7]}
     ],
     [
         {cost: '100$', model: 'Great'},
